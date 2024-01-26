@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MiniNotas.View.RegistarNota"
+             BackgroundColor="#121212"
+             Padding="20"
+              NavigationPage.HasNavigationBar="False">
+
+    <Grid RowDefinitions="80,*"
+          BackgroundColor="#1d1d1d">
+        <StackLayout Orientation="Horizontal" Padding="15">
+
+            <Image Source="https://i.ibb.co/yNjq10b/esquema-de-boton-circular-de-flecha-hacia-atras-izquierda.png" WidthRequest="40">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Volvercommand}"/>
+                </Image.GestureRecognizers>
+
+            </Image>
+            <Label Text="NOTAS" Margin="90,0,100,0" HorizontalOptions="Center" VerticalOptions="Center" FontSize="28" FontAttributes="Bold" TextColor="#FD8298"/>
+
+            <Image Source="https://i.ibb.co/0YNRzKg/notas-1.png"/>
+        </StackLayout>
+
+        <StackLayout Grid.Row="1" Margin="10">
+            <!-- Título de la Nota -->
+            <StackLayout>
+                <Label Text="Titulo: "
+                       TextColor="White" 
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"
+                       FontSize="18"/>
+
+                <!-- Título de la Nota -->
+                <Entry Text="{Binding TxtTitulo}"
+                       Placeholder="Título de la Nota"
+                       PlaceholderColor="#757575"
+                       TextColor="White"
+                       BackgroundColor="#212121"
+                       Margin="0,0,0,10" />
+
+                <!-- Contenido de la Nota -->
+                <Editor Text="{Binding TxtNota}"
+                        Placeholder="Contenido de la Nota"
+                        PlaceholderColor="#757575"
+                        TextColor="White"
+                        BackgroundColor="#212121"
+                        HeightRequest="200"
+                        Margin="0,0,0,10" />
+
+            </StackLayout>
+
+            <Button
+                    Text="+"
+                    HorizontalOptions="Center"
+                    BackgroundColor="#FEC100"
+                    BorderColor="#FEC100"
+                    BorderWidth="6"
+                    CornerRadius="15"
+                    FontSize="25"
+                    WidthRequest="60"
+                    HeightRequest="60"
+                    TranslationX="170"
+                    TranslationY="230"
+                    Command="{Binding Insertarcommand}"/>
+
+
+
+        </StackLayout>
+    </Grid>
+</ContentPage>
