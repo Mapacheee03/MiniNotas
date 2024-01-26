@@ -1,47 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MiniNotas.View.EditarNotas">
+             x:Class="MiniNotas.View.EditarNotas"
+             BackgroundColor="#121212"
+             Padding="20"
+             NavigationPage.HasNavigationBar="False">
+    
     <Grid RowDefinitions="80,*"
       BackgroundColor="#1d1d1d">
         <StackLayout Orientation="Horizontal" Padding="15">
 
-            <Image Source="https://i.ibb.co/qNhwNHd/flecha-izquierda.png" WidthRequest="40">
+            <Image Source="https://i.ibb.co/yNjq10b/esquema-de-boton-circular-de-flecha-hacia-atras-izquierda.png" WidthRequest="40">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding Volvercommand}"/>
                 </Image.GestureRecognizers>
 
             </Image>
-            <Image Source="https://i.ibb.co/GxStDTt/pokemon-logo-pokemon-icon-transparent-free-png.webp" 
-            HorizontalOptions="CenterAndExpand" />
-            <Image Source="https://i.ibb.co/Xsh2hb1/pokebola.png" />
+            <Label Text="NOTAS" Margin="90,0,100,0" HorizontalOptions="Center" VerticalOptions="Center" FontSize="28" FontAttributes="Bold" TextColor="#FD8298"/>
+
+            <Image Source="https://i.ibb.co/0YNRzKg/notas-1.png"/>
         </StackLayout>
 
         <StackLayout Grid.Row="1" Margin="10">
             <!-- Título de la Nota -->
             <StackLayout>
-                <Label Text="Titulo: "
-                TextColor="White" 
-                FontAttributes="Bold"
-                VerticalOptions="Center"
-                FontSize="18"/>
+                <Label   Text="Titulo: "
+                         TextColor="White" 
+                         FontAttributes="Bold"
+                         VerticalOptions="Center"
+                         FontSize="18"/>
 
                 <!-- Título de la Nota -->
-                <Entry Text="{Binding _Notas.Titulo}"
-                Placeholder="Título de la Nota"
-                PlaceholderColor="#757575"
-                TextColor="White"
-                BackgroundColor="#212121"
-                Margin="0,0,0,10" />
+                <Entry  Text="{Binding _Notas.Titulo}"
+                        Placeholder="Título de la Nota"
+                        PlaceholderColor="#757575"
+                        TextColor="White"
+                        BackgroundColor="#212121"
+                        Margin="0,0,0,10" />
 
                 <!-- Contenido de la Nota -->
                 <Editor Text="{Binding _Notas.Nota}"
-                 Placeholder="Contenido de la Nota"
-                 PlaceholderColor="#757575"
-                 TextColor="White"
-                 BackgroundColor="#212121"
-                 HeightRequest="200"
-                 Margin="0,0,0,10" />
+                        Placeholder="Contenido de la Nota"
+                        PlaceholderColor="#757575"
+                        TextColor="White"
+                        BackgroundColor="#212121"
+                        HeightRequest="200"
+                        Margin="0,0,0,10" />
 
             </StackLayout>
 
@@ -49,35 +53,35 @@
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                 <Button
-                    Text="Borrar"
-                    HorizontalOptions="Center"
-                    BackgroundColor="Red"
-                    BorderColor="Red"
-                    BorderWidth="6"
-                    CornerRadius="100"
-                    FontSize="10"
-                    WidthRequest="70"
-                    HeightRequest="70"
-                    Command="{Binding Eliminarcommand}"/>
+                         ImageSource="https://i.ibb.co/JRfVcd1/eliminar-1.png"
+                         HorizontalOptions="Center"
+                         BackgroundColor="Red"
+                         BorderColor="Red"
+                         BorderWidth="1"
+                         CornerRadius="104"
+                         FontSize="1"
+                         WidthRequest="70"
+                         HeightRequest="70"           
+                         Command="{Binding Eliminarcommand}"/>
 
 
                 <Frame HorizontalOptions="Center"
-                   Padding="6"
-                   Margin="100,0,0,0"
-                  CornerRadius="100"
-                   HasShadow="False"
-                   BackgroundColor="LightGreen">
+                        Padding="6"
+                        Margin="100,0,0,0"
+                       CornerRadius="100"
+                        HasShadow="False"
+                        BackgroundColor="LightGreen">
                     <Button
-                   Text="Editar"
-                    HorizontalOptions="Center"
-                    BackgroundColor="LightGreen"
-                    BorderColor="LightGreen"
-                    BorderWidth="6"
-                    CornerRadius="100"
-                    FontSize="10"
-                    WidthRequest="60"
-                    HeightRequest="60"
-                    Command="{Binding Editarcommand}"/>
+                         ImageSource="https://i.ibb.co/dfW6mnZ/editar-1.png"
+                         HorizontalOptions="Center"
+                         BackgroundColor="LightGreen"
+                         BorderColor="LightGreen"
+                         BorderWidth="6"
+                         CornerRadius="100"
+                         FontSize="10"
+                         WidthRequest="60"
+                         HeightRequest="60"
+                         Command="{Binding Editarcommand}"/>
                 </Frame>
             </StackLayout>
         </StackLayout>
