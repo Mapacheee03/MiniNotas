@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:triggers="clr-namespace:Xamarin.Forms.Triggers;assembly=Xamarin.Forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MiniNotas.View.RegistarNota"
              BackgroundColor="#121212"
@@ -24,7 +25,8 @@
         <StackLayout Grid.Row="1" Margin="10">
             <!-- Título de la Nota -->
             <StackLayout>
-                <Label Text="Titulo: "
+                <Label Text="Titulo:"
+                       x:Name="TextEntry"
                        TextColor="White" 
                        FontAttributes="Bold"
                        VerticalOptions="Center"
@@ -49,19 +51,20 @@
 
             </StackLayout>
 
-            <Button
+            <Button x:Name="InsertarButton"
                     Text="+"
                     HorizontalOptions="Center"
                     BackgroundColor="#FEC100"
-                    BorderColor="#FEC100"
-                    BorderWidth="6"
                     CornerRadius="15"
                     FontSize="25"
                     WidthRequest="60"
                     HeightRequest="60"
                     TranslationX="170"
                     TranslationY="230"
-                    Command="{Binding Insertarcommand}"/>
+                    Command="{Binding Insertarcommand}"
+                   Clicked="OnInsertarButtonClicked">
+              
+            </Button>
 
 
 

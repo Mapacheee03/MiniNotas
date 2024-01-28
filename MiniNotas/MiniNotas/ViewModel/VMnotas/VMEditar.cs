@@ -39,22 +39,34 @@ namespace MiniNotas.ViewModel.Notas
         #region PROCESO
         public async Task Editar()
         {
-            var funcion = new DNotas();
-            var parametros = new Mnotas();
-            parametros.IdNota = _Notas.IdNota;
-            parametros.Titulo = TxtTitulo;
-            parametros.Nota = TxtNota;
+            // Muestra un mensaje de confirmación antes de editar la nota
+            bool confirmacion = await Application.Current.MainPage.DisplayAlert("Editar Nota", "¿Estás seguro de que quieres guardar los cambios?", "Sí", "Cancelar");
 
-            await funcion.ActualizarNotas(parametros);
-            await Volver();
-        }
-        public async Task Eliminar()
-        {
+            if (confirmacion)
+            {
+                var funcion = new DNotas();
+                var parametros = new Mnotas();
+                parametros.IdNota = _Notas.IdNota;
+                parametros.Titulo = TxtTitulo;
+                parametros.Nota = TxtNota;
 
-            var funcion = new DNotas();
-            await funcion.EliminarNotas(_Notas);
-            await Volver(); ;
+                await funcion.ActualizarNotas(parametros);
+                await Volver();
+            }
         }
+        //public async Task Eliminar()
+        //{
+
+        //    // Muestra un mensaje de confirmación antes de eliminar la nota
+        //    bool confirmacion = await Application.Current.MainPage.DisplayAlert("Eliminar Nota", "¿Estás seguro de que quieres eliminar esta nota?", "Sí", "Cancelar");
+
+        //    if (confirmacion)
+        //    {
+        //        var funcion = new DNotas();
+        //        await funcion.EliminarNotas(_Notas);
+        //        await Volver();
+        //    }
+        //}
         public async Task Volver()
         {
             await Navigation.PopAsync();
@@ -62,7 +74,7 @@ namespace MiniNotas.ViewModel.Notas
         #endregion
         #region COMANDOS
         public ICommand Editarcommand => new Command(async () => await Editar());
-        public ICommand Eliminarcommand => new Command(async () => await Eliminar());
+        //public ICommand Eliminarcommand => new Command(async () => await Eliminar());
         public ICommand Volvercommand => new Command(async () => await Volver());
 
         #endregion

@@ -2,76 +2,86 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MiniNotas.View.ListarNotas"
-              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="#121212"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#000"
              Padding="20">
-    
-    <Grid RowDefinitions="60,*"
-       BackgroundColor="#1d1d1d">
 
-        <Label Text="NOTAS" HorizontalOptions="Center" VerticalOptions="Center" FontSize="28" FontAttributes="Bold" TextColor="#FD8298"/>
+    <Grid
+      BackgroundColor="#1d1d1d">
+        <StackLayout>
+            <Label Text="NOTAS" 
+            HorizontalOptions="Center" 
+            VerticalOptions="Center" 
+            FontSize="28" 
+            FontAttributes="Bold" 
+            TextColor="#fff"
+            Margin="0,20,0,10"/>
 
-        <CollectionView Background="#1d1d1d"
-                     x:Name="Listado"
-                         Grid.Row="1"
-                         ItemsSource="{Binding ListaNotas}"
-                         Margin="0,0,0,0">
+            <ScrollView>
+                <FlexLayout Direction="Column"
+                     AlignItems="Start"
+                     JustifyContent="Start"
+                     AlignContent="Start"
+                     Wrap="Wrap"
+                     BackgroundColor="#333">
 
-            <CollectionView.ItemsLayout>
+                    <CollectionView BackgroundColor="#1d1d1d"
+                             x:Name="Listado"
+                             ItemsSource="{Binding ListaNotas}"
+                             Margin="0,0,0,0">
 
-                <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="10" VerticalItemSpacing="10" />
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <SwipeView BackgroundColor="#1d1d1d">
+                                    <SwipeView.RightItems>
+                                        <SwipeItems>
+                                            <SwipeItem 
+                                                    Text="Editar" 
+                                                    BackgroundColor="#2ECC71"
+                                                    Command="{Binding Path=BindingContext.IraEditarcommand, Source={x:Reference Listado}}"
+                                                    CommandParameter="{Binding .}" />
+                                            <SwipeItem 
+                                                    Text="Eliminar" 
+                                                    BackgroundColor="#E74C3C"
+                                                    Command="{Binding Source={x:Reference Listado}, Path=BindingContext.EliminarNotaCommand}"
+                                                    CommandParameter="{Binding .}"/>    
+                                        </SwipeItems>
+                                    </SwipeView.RightItems>
+                       
+                                    <Frame WidthRequest="250"
+                                    HorizontalOptions="Center"
+                                    CornerRadius="15"
+                                    Margin="0,10,10,0"
+                                    HasShadow="False"
+                                    BackgroundColor="#333">
+                                        <StackLayout Margin="10">
+                                            
+                                            <Label Text="{Binding Titulo}"
+                                            FontSize="20"
+                                            TextColor="#000"/>
+                                          </StackLayout>
+                                    </Frame>
+                                </SwipeView>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </FlexLayout>
+            </ScrollView>
 
-            </CollectionView.ItemsLayout>
-
-            <CollectionView.ItemTemplate>
-
-                <DataTemplate>
-
-                    <Grid RowDefinitions="100, *"
-                       Margin="10,10,0,0">
-
-                        <Frame Grid.Row="1" WidthRequest="250"
-                            HorizontalOptions="Center"
-                            CornerRadius="15"
-                            Margin="10,-68,10,0"
-                            HasShadow="False"
-                            BackgroundColor="#333333">
-
-
-
-                            <StackLayout 
-                             Margin="0,10,0,0">
-                                <Label Text="{Binding Titulo}"
-                                       FontSize="20"
-                                       TextColor="#fff"/>
-                            </StackLayout>
-                        </Frame>
-
-                        
-
-                        <Grid.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding Path=BindingContext.IraEditarcommand,Source={x:Reference Listado}}" CommandParameter="{Binding .}"/>
-                        </Grid.GestureRecognizers>
-                    </Grid>
-
-                </DataTemplate>
-
-            </CollectionView.ItemTemplate>
-
-        </CollectionView>
-
-        <Button Text="+"
-                HorizontalOptions="Center"
-                BackgroundColor="#FEC100"
-                BorderColor="#FEC100"
-                BorderWidth="6"
-                CornerRadius="15"
-                FontSize="25"
-                WidthRequest="60"
-                HeightRequest="60"
-                TranslationX="170"
-                TranslationY="630"
-         Command="{Binding IraRegistrocommand}"/>
-
+            <Button Text="+"
+             x:Name="EliminarButton"
+             HorizontalOptions="Center"
+             BackgroundColor="Red"
+             BorderColor="Red"
+             BorderWidth="6"
+             CornerRadius="15"
+             FontSize="25"
+             WidthRequest="60"
+             HeightRequest="60"  
+             Margin="0,20,0,20"
+             TextColor="#FFFFFF"
+             Command="{Binding IraRegistrocommand}"/>
+        </StackLayout>
     </Grid>
+   
 </ContentPage>

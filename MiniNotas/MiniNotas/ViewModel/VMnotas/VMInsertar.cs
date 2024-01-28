@@ -8,12 +8,15 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using MiniNotas.ModelView;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace MiniNotas.ViewModel.Notas
 {
     public class VMInsertar : BaseViewModel
     {
         #region VARIABLES
+       
         string _Txtidnota;
         string _TxtTitulo;
         string _TxtNota;
@@ -25,6 +28,7 @@ namespace MiniNotas.ViewModel.Notas
         }
         #endregion
         #region OBJETOS
+    
         public string Txtidnota
         {
             get { return _Txtidnota; }
@@ -49,8 +53,12 @@ namespace MiniNotas.ViewModel.Notas
             parametros.Nota = TxtNota;
             parametros.Titulo = TxtTitulo;
             await funcion.InsertarNota(parametros);
+            await Task.Delay(1000); // Simulando una tarea de inserción
+
             await Volver();
+            
         }
+       
         public async Task Volver()
         {
             await Navigation.PopAsync();
@@ -58,7 +66,7 @@ namespace MiniNotas.ViewModel.Notas
         #endregion
         #region COMANDOS
         public ICommand Insertarcommand => new Command(async () => await Insertar());
-        public ICommand Volvercommand => new Command(async () => await Volver());
+        public ICommand Volvercommand => new Command(async () => await Volver());   
         #endregion
 
     }

@@ -5,7 +5,9 @@
              BackgroundColor="#121212"
              Padding="20"
              NavigationPage.HasNavigationBar="False">
+
     
+
     <Grid RowDefinitions="80,*"
       BackgroundColor="#1d1d1d">
         <StackLayout Orientation="Horizontal" Padding="15">
@@ -52,19 +54,6 @@
 
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                <Button
-                         ImageSource="https://i.ibb.co/JRfVcd1/eliminar-1.png"
-                         HorizontalOptions="Center"
-                         BackgroundColor="Red"
-                         BorderColor="Red"
-                         BorderWidth="1"
-                         CornerRadius="104"
-                         FontSize="1"
-                         WidthRequest="70"
-                         HeightRequest="70"           
-                         Command="{Binding Eliminarcommand}"/>
-
-
                 <Frame HorizontalOptions="Center"
                         Padding="6"
                         Margin="100,0,0,0"

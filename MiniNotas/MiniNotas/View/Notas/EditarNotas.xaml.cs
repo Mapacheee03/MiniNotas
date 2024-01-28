@@ -19,5 +19,9 @@ namespace MiniNotas.View
             InitializeComponent();
             BindingContext = new VMEditar(Navigation, Notitas);
         }
+
+       
     }
+
+    
 }
