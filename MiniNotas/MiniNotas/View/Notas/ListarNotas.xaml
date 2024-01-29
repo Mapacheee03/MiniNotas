@@ -33,20 +33,23 @@
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <SwipeView BackgroundColor="#1d1d1d">
-                                    <SwipeView.RightItems>
+                                    <SwipeView.LeftItems>
                                         <SwipeItems>
+                                            <SwipeItem 
+                                                     Text="Eliminar" 
+                                                     BackgroundColor="#E74C3C"
+                                                     Command="{Binding Source={x:Reference Listado}, Path=BindingContext.EliminarNotaCommand}"
+                                                     CommandParameter="{Binding .}" 
+                                                     Clicked="HandleSwipeItem"/>
+
                                             <SwipeItem 
                                                     Text="Editar" 
                                                     BackgroundColor="#2ECC71"
                                                     Command="{Binding Path=BindingContext.IraEditarcommand, Source={x:Reference Listado}}"
                                                     CommandParameter="{Binding .}" />
-                                            <SwipeItem 
-                                                    Text="Eliminar" 
-                                                    BackgroundColor="#E74C3C"
-                                                    Command="{Binding Source={x:Reference Listado}, Path=BindingContext.EliminarNotaCommand}"
-                                                    CommandParameter="{Binding .}"/>    
+                                           
                                         </SwipeItems>
-                                    </SwipeView.RightItems>
+                                    </SwipeView.LeftItems>
                        
                                     <Frame WidthRequest="250"
                                     HorizontalOptions="Center"

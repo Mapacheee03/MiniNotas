@@ -53,7 +53,7 @@ namespace MiniNotas.ViewModel.Notas
             parametros.Nota = TxtNota;
             parametros.Titulo = TxtTitulo;
             await funcion.InsertarNota(parametros);
-            await Task.Delay(1000); // Simulando una tarea de inserción
+            await Task.Delay(1000); 
 
             await Volver();
             

@@ -56,12 +56,15 @@ namespace MiniNotas.ViewModel
         #region PROCESO
         private async Task EliminarNota(Mnotas nota)
         {
-            var funcion = new DNotas();
-            await funcion.EliminarNotas(nota);
-            await MostrarNota(); 
+            bool confirmacion = await Application.Current.MainPage.DisplayAlert("Eliminar Nota", "¿Estás seguro de que quieres Eliminar la nota?", "Sí", "Cancelar");
+            if (confirmacion)
+            {
+                var funcion = new DNotas();
+                await funcion.EliminarNotas(nota);
+                await MostrarNota();
 
-
-            MessagingCenter.Send(this, "NotaEliminada", "La nota ha sido eliminada");
+            }
+           
         }
 
         public async Task MostrarNota()

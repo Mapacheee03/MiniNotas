@@ -18,7 +18,7 @@
                 </Image.GestureRecognizers>
 
             </Image>
-            <Label Text="NOTAS" Margin="90,0,100,0" HorizontalOptions="Center" VerticalOptions="Center" FontSize="28" FontAttributes="Bold" TextColor="#FD8298"/>
+            <Label Text="NOTAS" Margin="90,0,60,0" HorizontalOptions="Center" VerticalOptions="Center" FontSize="28" FontAttributes="Bold" TextColor="#FD8298"/>
 
             <Image Source="https://i.ibb.co/0YNRzKg/notas-1.png"/>
         </StackLayout>
